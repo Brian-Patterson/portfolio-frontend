@@ -5,9 +5,8 @@ function About(props) {
     const [about, setAbout] = useState(null);
 
     const getAboutData = async () => {
-        const response = await fetch("https://portfolioqemo.herokuapp.com/about");
+        const response = await fetch(props.URL + "about");
         const data = await response.json();
-        console.log(data)
         setAbout(data);
     }
     
@@ -22,10 +21,6 @@ function About(props) {
             <p>{about.bio}</p>
         </div>
     );
-
-console.log(loaded())
-console.log(about.bio)
-
 
 return about ? loaded() : <h1>Loading...</h1>;
 };
